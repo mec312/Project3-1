@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: bankdeposit-microservice
+  cloud:
+    config:
+      uri: http://localhost:8081
+      username: develop
+      password: develop
+  profiles:
+    active: dev
+
+
+
+
+

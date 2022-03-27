@@ -1,0 +1,17 @@
+
+spring:
+  application:
+    name: bankcreditcard-microservice
+  cloud:
+    config:
+      uri: http://localhost:8081
+      username: develop
+      password: develop
+  profiles:
+    active: dev
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+

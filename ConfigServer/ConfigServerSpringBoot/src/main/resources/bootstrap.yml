@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  security:
+    user:
+      name: develop
+      password: develop
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/mec312/Project3.git
+          search-paths: config-data
+          default-label: "main"
+
+  application:
+    name: serverconfig
+
+  profiles:
+    active: dev

@@ -1,0 +1,3 @@
+com\bootcamp\bankdeposit\BankdepositApplicationTests.class
+com\bootcamp\bankdeposit\controller\DepositControllerTest.class
+com\bootcamp\bankdeposit\service\DepositServiceImplTest.class
