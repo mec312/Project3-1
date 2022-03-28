@@ -6,6 +6,7 @@ import com.bootcamp.bankclient.repository.ClientRepository;
 import com.bootcamp.bankclient.service.ClientService;
 import com.bootcamp.bankclient.utils.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import reactor.core.publisher.Flux;
@@ -13,6 +14,11 @@ import reactor.core.publisher.Mono;
 
 @Service
 public class ClientServiceImpl implements ClientService {
+
+    @Value("${microservice-accounts.uri}")
+    private String urlAccounts;
+    @Value("${apiclient.uri}")
+    private String urlApigateway;
 
     @Autowired
     private ClientRepository clientRepository;
