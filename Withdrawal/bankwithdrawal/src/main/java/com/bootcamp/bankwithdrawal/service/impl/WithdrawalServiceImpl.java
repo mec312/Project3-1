@@ -1,19 +1,18 @@
-package com.bootcamp.bankwithdrawal.service;
+package com.bootcamp.bankwithdrawal.service.impl;
 
 import com.bootcamp.bankwithdrawal.dto.WithdrawalDto;
 import com.bootcamp.bankwithdrawal.repository.WithdrawalRepository;
+import com.bootcamp.bankwithdrawal.service.WithdrawalService;
 import com.bootcamp.bankwithdrawal.util.AppUtils;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
+@AllArgsConstructor
 public class WithdrawalServiceImpl implements WithdrawalService {
-
-
-
-
 
     @Autowired
     private WithdrawalRepository withdrawalRepository;
@@ -26,17 +25,11 @@ public class WithdrawalServiceImpl implements WithdrawalService {
     public Mono<WithdrawalDto> getWithdrawalById(String id) {
         return withdrawalRepository.findById(id).map(AppUtils::entityToDto);
     }
-/*
-    @Override
-    public Mono<WithdrawalDto> getWithdrawalByName(String name) {
-        return withdrawalRepository.findByName(name);
-    }*/
 
     @Override
     public Mono<WithdrawalDto> getWithdrawalByWithdrawalNumber(String withdrawalNumber) {
         return withdrawalRepository.findByWithdrawalNumber(withdrawalNumber)
-                .switchIfEmpty(Mono.just(WithdrawalDto.builder()
-                        .withdrawalNumber(null).build()));
+                .switchIfEmpty(Mono.just(new WithdrawalDto()));
     }
 
 
