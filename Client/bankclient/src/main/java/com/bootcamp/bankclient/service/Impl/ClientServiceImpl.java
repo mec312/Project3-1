@@ -71,17 +71,5 @@ public class ClientServiceImpl implements ClientService {
         return clientRepository.deleteById(id);
     }
 
-    @Override
-    public Mono<Client> getProduct(Client depositDto) {
-        Client accountOutgoing = RestTemplate.getForObject(urlApigateway + urlAccounts + depositDto.getFromAccountId(), AccountDto.class);
-        Client accountDestination = RestTemplate.getForObject(urlApigateway + urlAccounts + depositDto.getToAccountId(), AccountDto.class);
-        if(accountOutgoing.getBalance()>=depositDto.getAmount()&&accountOutgoing.getCurrency()==accountDestination.getCurrency()){
-            accountOutgoing.setBalance(accountDestination.getBalance()-depositDto.getAmount());
-            accountDestination.setBalance(accountDestination.getBalance()+depositDto.getAmount());
-            return Mono.just(accountDestination);
-        }else{
-            return null;
-        }
 
-    }
 }
