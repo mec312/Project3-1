@@ -3,6 +3,7 @@ package com.bootcamp.bankdeposit.service;
 import com.bootcamp.bankdeposit.bean.Deposit;
 import com.bootcamp.bankdeposit.dto.DepositDto;
 import com.bootcamp.bankdeposit.repository.DepositRepository;
+import com.bootcamp.bankdeposit.service.impl.DepositServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

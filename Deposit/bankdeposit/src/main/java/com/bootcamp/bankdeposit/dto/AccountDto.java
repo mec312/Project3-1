@@ -16,22 +16,13 @@ import lombok.Setter;
 public class AccountDto {
     private String id;
     private Double balance;
-
     private String accountNumber;
     private String accountType;
-
     private String currency;
     private String canBeDeposit;
-
     private int maxLimitMovementPerMonth;
     private int movementPerMonth;
-
     private Double minimumOpeningAmount;
-
     private Double minimumDailyAverageAmountEachMonth;
-
-
     private int maxLimitTransaction;
-
-
 }

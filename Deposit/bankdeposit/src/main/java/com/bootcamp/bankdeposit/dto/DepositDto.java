@@ -22,15 +22,4 @@ public class DepositDto {
     private String toAccountId;
     private String idDepositor;
     private String timestamp;
-
-    public DepositDto(Double amount, String currency, String idClient, String fromAccountId, String fromAccountNumber, String toAccountNumber, String toAccountId, String idDepositor, String timestamp) {
-        this.amount = amount;
-        this.currency = currency;
-        this.idClient = idClient;
-        this.fromAccountId=fromAccountId;
-        this.fromAccountNumber = fromAccountNumber;
-        this.toAccountNumber = toAccountNumber;
-        this.idDepositor = idDepositor;
-        this.timestamp = timestamp;
-    }
 }
