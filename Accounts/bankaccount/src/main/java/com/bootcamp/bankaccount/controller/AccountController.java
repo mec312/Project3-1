@@ -34,8 +34,8 @@ public class AccountController {
     return accountService.getAccountById(id);
   }
 
-  @GetMapping("/findByClientId")
-  public Flux<Account> getAccountByClientId(@RequestParam String clientId) {
+  @GetMapping("/findByClientId/{clientId}")
+  public Flux<Account> getAccountByClientId(@PathVariable String clientId) {
     log.info("Getting a ClientId!");
     return accountService.getAccountByClientId(clientId);
   }

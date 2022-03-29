@@ -83,8 +83,8 @@ public class ClientController {
         return clientService.deleteClient(id);
     }
 
-    @GetMapping("/summary")
-    public Mono<ClientSummaryDto> summary(@RequestParam String clientId){
+    @GetMapping("/summary/{clientId}")
+    public Mono<ClientSummaryDto> summary(@PathVariable String clientId){
         return clientService.summary(clientId);
     }
 

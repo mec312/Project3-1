@@ -83,7 +83,6 @@ public class ClientServiceImpl implements ClientService {
         Map<String, String> uriParam = new HashMap<>();
         uriParam.put("clientId", clientId);
         return clientRepository.findByClientIdNumber(clientId)
-                .switchIfEmpty(Mono.just(new ClientDto()))
                 .map(client -> {
                     ClientSummaryDto summary = new ClientSummaryDto();
                     Optional.ofNullable(client.getClientType()).ifPresent(type -> {
@@ -97,7 +96,7 @@ public class ClientServiceImpl implements ClientService {
                     });
 //                    Optional.ofNullable(null).ifPresentOrElse();
                     Optional.ofNullable((ArrayList<Account>) restTemplate.getForObject(
-                            urlApigateway + urlAccounts+"?clientId="+clientId,
+                            urlApigateway + urlAccounts+"/"+clientId,
                             ArrayList.class)).ifPresentOrElse(accounts -> {
                                 summary.setAccount(accounts);
                     },() -> new ArrayList<>());
