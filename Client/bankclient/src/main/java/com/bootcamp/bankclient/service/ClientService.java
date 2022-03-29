@@ -1,5 +1,6 @@
 package com.bootcamp.bankclient.service;
 
+import com.bootcamp.bankclient.model.dto.ClientSummaryDto;
 import com.bootcamp.bankclient.model.entities.Client;
 import com.bootcamp.bankclient.model.dto.ClientDto;
 import reactor.core.publisher.Flux;
@@ -22,4 +23,6 @@ public interface ClientService {
     Mono<ClientDto> updateClients(Mono<ClientDto> clientDtoMono, String id);
 
     Mono<Void> deleteClient(String id);
+
+    Mono<ClientSummaryDto> summary(String clientId);
 }
