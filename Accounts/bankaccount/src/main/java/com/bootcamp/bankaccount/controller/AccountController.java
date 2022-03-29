@@ -1,5 +1,6 @@
 package com.bootcamp.bankaccount.controller;
 
+import com.bootcamp.bankaccount.models.bean.Account;
 import com.bootcamp.bankaccount.models.dto.AccountDto;
 import com.bootcamp.bankaccount.service.AccountService;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
@@ -31,6 +32,12 @@ public class AccountController {
   public Mono<AccountDto> getAccount(@PathVariable String id) {
     log.debug("Getting a account!");
     return accountService.getAccountById(id);
+  }
+
+  @GetMapping("/findByClientId")
+  public Flux<Account> getAccountByClientId(@RequestParam String clientId) {
+    log.info("Getting a ClientId!");
+    return accountService.getAccountByClientId(clientId);
   }
 
   @CircuitBreaker(name = "saveAccountCB",

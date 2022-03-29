@@ -21,7 +21,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Objects;
-import java.util.Optional;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -88,7 +87,9 @@ public class AccountServiceImpl implements AccountService {
   }
 
   private ClientDto obtainClient(String clientId) {
-    ClientDto clientDto = restTemplate.getForObject(urlApigateway + urlClients + "findClientCredit/" + clientId, ClientDto.class);
+    ClientDto clientDto = restTemplate.getForObject(urlApigateway
+            + urlClients + "findClientCredit/"
+            + clientId, ClientDto.class);
     log.debug("clientDto:" + clientDto.getClientIdNumber());
     return clientDto;
   }
@@ -121,5 +122,10 @@ public class AccountServiceImpl implements AccountService {
   @Override
   public Mono<Account> findByAccountNumber(String accountNumber) {
     return accountRepository.findByAccountNumber(accountNumber);
+  }
+
+  @Override
+  public Flux<Account> getAccountByClientId(String clientIdNumber){
+    return accountRepository.findByClientIdNumber(clientIdNumber);
   }
 }
